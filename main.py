@@ -2,14 +2,14 @@ import random
 
 # Return a list of the next "words" from a file. The resulting list's size is determined by the order argument.
 def get_words(order = 3):
-    stuff = []
+    buffer = []
     with open("corpus.txt", "r") as f:
         for line in f:
             lines = line.split()
-            stuff.extend(lines)
-            while(len(stuff) > order):
-                yield stuff[0:order]
-                stuff.pop(0)
+            buffer.extend(lines)
+            while(len(buffer) > order):
+                yield buffer[0:order]
+                buffer.pop(0)
 
 def populate_table():
     # Populate a dictionary with key/value pairs of words and their respective frequencies.
